@@ -23,7 +23,9 @@
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "themeColor": "#1b1b1b",
+      "backgroundColor": "#1b1b1b"
     }
   }
 }
