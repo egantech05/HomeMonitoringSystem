@@ -7,6 +7,25 @@ export default function HomePlan(props) {
     const HOVER = "#464b8b";
     const is = (id) => hovered === id;
 
+    const activeId = props.activeRoomId ?? hovered;
+
+    const setActive = (id) => {
+      setHovered(id);
+      props.onRoomHover?.(id);
+    };
+    
+    const clearActive = () => {
+      setHovered(null);
+      props.onRoomHover?.(null);
+    };
+    
+    const hoverHandlers = (id) => ({
+      onMouseEnter: () => setActive(id),
+      onMouseLeave: clearActive,
+      onPressIn: () => setActive(id),
+      onPressOut: clearActive,
+    });
+
   return (
     <Svg
       viewBox="0 0 151.32249 123.21939"
@@ -946,8 +965,7 @@ export default function HomePlan(props) {
           id="Garage"
           fill={HOVER}
           fillOpacity={is("Garage") ? 0.7 : 0}
-          onMouseEnter={() => setHovered("Garage")}
-          onMouseLeave={() => setHovered(null)}
+          {...hoverHandlers("Garage")}
           style={{ cursor: "pointer" }}
         />
         <Path
@@ -955,17 +973,15 @@ export default function HomePlan(props) {
           id="Room1"
           fill={HOVER}
           fillOpacity={is("Room1") ? 0.7 : 0}
-          onMouseEnter={() => setHovered("Room1")}
-          onMouseLeave={() => setHovered(null)}
+          {...hoverHandlers("Room1")}
           style={{ cursor: "pointer" }}
         />
         <Path
           d="M130.481 170.356l6.028-1.927 9.826 14.735-.907.424v6.318l-1.684.38-1.378-2.067v-1.86l-.985-1.477-1.023.327z"
           id="Toilet1"
           fill={HOVER}
-          fillOpacity={is("Toile1") ? 0.7 : 0}
-          onMouseEnter={() => setHovered("Toile1")}
-          onMouseLeave={() => setHovered(null)}
+          fillOpacity={is("Toilet1") ? 0.7 : 0}
+          {...hoverHandlers("Toilet1")}
           style={{ cursor: "pointer" }}
         />
         <Path
@@ -974,8 +990,7 @@ export default function HomePlan(props) {
           display="inline"
           fill={HOVER}
           fillOpacity={is("Room2") ? 0.7 : 0}
-          onMouseEnter={() => setHovered("Room2")}
-          onMouseLeave={() => setHovered(null)}
+          {...hoverHandlers("Room2")}
           style={{ cursor: "pointer" }}
         />
         <Path
@@ -983,8 +998,7 @@ export default function HomePlan(props) {
           id="LivingRoom"
           fill={HOVER}
           fillOpacity={is("LivingRoom") ? 0.7 : 0}
-          onMouseEnter={() => setHovered("LivingRoom")}
-          onMouseLeave={() => setHovered(null)}
+          {...hoverHandlers("LivingRoom")}
           style={{ cursor: "pointer" }}
         />
         <Path
@@ -992,8 +1006,7 @@ export default function HomePlan(props) {
           id="Room3"
           fill={HOVER}
           fillOpacity={is("Room3") ? 0.7 : 0}
-          onMouseEnter={() => setHovered("Room3")}
-          onMouseLeave={() => setHovered(null)}
+          {...hoverHandlers("Room3")}
           style={{ cursor: "pointer" }}
         />
         <Path
@@ -1001,8 +1014,7 @@ export default function HomePlan(props) {
           id="Room4"
           fill={HOVER}
           fillOpacity={is("Room4") ? 0.7 : 0}
-          onMouseEnter={() => setHovered("Room4")}
-          onMouseLeave={() => setHovered(null)}
+          {...hoverHandlers("Room4")}
           style={{ cursor: "pointer" }}
         />
         <Path
@@ -1010,8 +1022,7 @@ export default function HomePlan(props) {
           id="Kitchen"
           fill={HOVER}
           fillOpacity={is("Kitchen") ? 0.7 : 0}
-          onMouseEnter={() => setHovered("Kitchen")}
-          onMouseLeave={() => setHovered(null)}
+          {...hoverHandlers("Kitchen")}
           style={{ cursor: "pointer" }}
         />
         <Path
@@ -1019,8 +1030,7 @@ export default function HomePlan(props) {
           id="Laundry"
           fill={HOVER}
           fillOpacity={is("Laundry") ? 0.7 : 0}
-          onMouseEnter={() => setHovered("Laundry")}
-          onMouseLeave={() => setHovered(null)}
+          {...hoverHandlers("Laundry")}
           style={{ cursor: "pointer" }}
         />
         <Path
@@ -1028,8 +1038,7 @@ export default function HomePlan(props) {
           id="Toilet2"
           fill={HOVER}
           fillOpacity={is("Toilet2") ? 0.7 : 0}
-          onMouseEnter={() => setHovered("Toilet2")}
-          onMouseLeave={() => setHovered(null)}
+          {...hoverHandlers("Toilet2")}
           style={{ cursor: "pointer" }}
         />
         <Path
@@ -1037,8 +1046,7 @@ export default function HomePlan(props) {
           id="Store"
           fill={HOVER}
           fillOpacity={is("Store") ? 0.7 : 0}
-          onMouseEnter={() => setHovered("Store")}
-          onMouseLeave={() => setHovered(null)}
+          {...hoverHandlers("Store")}
           style={{ cursor: "pointer" }}
         />
         <Path
@@ -1046,8 +1054,7 @@ export default function HomePlan(props) {
           id="Toilet3"
           fill={HOVER}
           fillOpacity={is("Toilet3") ? 0.7 : 0}
-          onMouseEnter={() => setHovered("Toilet3")}
-          onMouseLeave={() => setHovered(null)}
+          {...hoverHandlers("Toilet3")}
           style={{ cursor: "pointer" }}
         />
         <Path
@@ -1055,8 +1062,7 @@ export default function HomePlan(props) {
           id="Room5"
           fill={HOVER}
           fillOpacity={is("Room5") ? 0.7 : 0}
-          onMouseEnter={() => setHovered("Room5")}
-          onMouseLeave={() => setHovered(null)}
+          {...hoverHandlers("Room5")}
           style={{ cursor: "pointer" }}
         />
         <Path
@@ -1064,8 +1070,7 @@ export default function HomePlan(props) {
           id="Dining"
           fill={HOVER}
           fillOpacity={is("Dining") ? 0.7 : 0}
-          onMouseEnter={() => setHovered("Dining")}
-          onMouseLeave={() => setHovered(null)}
+          {...hoverHandlers("Dining")}
           style={{ cursor: "pointer" }}
         />
       </G>
