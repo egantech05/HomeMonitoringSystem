@@ -81,9 +81,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "hsl(236,33%,50%)",
     margin: 24,
-    padding:24,
+    paddingVertical:24,
+    paddingHorizontal:32,
     borderRadius: 24,
-    width:"90%",
+
   },
 
 
