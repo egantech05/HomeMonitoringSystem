@@ -18,21 +18,6 @@ export default function ValueBar ({
     }, []);
 
 
-      const formatNumber = (value) => {
-        if (typeof value !== 'number') return value;
-        const rounded = Math.round(value * 10) / 10;
-        return Number.isInteger(rounded) ? String(rounded) : rounded.toFixed(1);
-      };
-    
-      const renderValue = (value, unit) => {
-        const isNumber = typeof value === 'number';
-        return (
-          <>
-            <Text style={styles.value}>{isNumber ? formatNumber(value) : value}</Text>
-            {isNumber && <Text style={styles.unit}> {unit}</Text>}
-          </>
-        );
-      };
 
 
 return(
@@ -81,8 +66,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "hsl(236,33%,50%)",
     margin: 24,
-    paddingVertical:24,
-    paddingHorizontal:32,
+    padding:24,
     borderRadius: 24,
 
   },
@@ -109,7 +93,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 24,
-    paddingHorizontal: 8,
+    paddingHorizontal: 24,
   },
 
   valueBox: {
