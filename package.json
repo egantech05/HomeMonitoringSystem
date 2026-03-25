@@ -10,6 +10,8 @@
     "build:web": "expo export --platform web"
   },
   "dependencies": {
+    "@babel/core": "^7.26.0",
+    "babel-preset-expo": "~55.0.8",
     "expo": "~55.0.8",
     "expo-status-bar": "~55.0.4",
     "react": "19.2.0",
