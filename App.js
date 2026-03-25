@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React, { useMemo, useState } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 import HomePlan from './assets/homePlan';
 import ZoomableSVG from './utils/ZoomableSVG';
@@ -39,46 +40,53 @@ export default function App() {
   const display = activeRoom || summary;
   return (
 
-    <GestureHandlerRootView style={styles.container}>
-      <ValueBar
-        temperature={display.temperature}
-        humidity={display.humidity}
-        powerConsumption={display.powerConsumption}
-        waterConsumption={display.waterConsumption}
-      />
-      <View style={styles.plan}> 
-        <ZoomableSVG>
-          <HomePlan onRoomHover={setActiveRoomId} activeRoomId={activeRoomId} />
-        </ZoomableSVG>
-      </View>
-      <View>
-        <Text style={styles.brand}> by EGANTECH</Text>
-      </View>
-    </GestureHandlerRootView>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.safe} edges={['top', 'left', 'right', 'bottom']}>
+        <GestureHandlerRootView style={styles.container}>
+          <ValueBar
+            temperature={display.temperature}
+            humidity={display.humidity}
+            powerConsumption={display.powerConsumption}
+            waterConsumption={display.waterConsumption}
+          />
+          <View style={styles.plan}>
+            <ZoomableSVG>
+              <HomePlan onRoomHover={setActiveRoomId} activeRoomId={activeRoomId} />
+            </ZoomableSVG>
+          </View>
+          <View>
+            <Text style={styles.brand}> by EGANTECH</Text>
+          </View>
+        </GestureHandlerRootView>
+      </SafeAreaView>
+    </SafeAreaProvider>
 
   );
 }
 
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  safe: {
+    flex:1,
     backgroundColor: '#1b1b1bff',
+    padding: 8,
+    
+  },
+  container: {
     alignItems: 'center',
-    justifyContent: 'center',
-    padding: 24,
-
+    flex:1,
+    justifyContent:"space-between"
   },
 
   plan:{
     width: "100%",
-    height: "80%",
-    padding: 40,
+    height:"65%",
     overflow:"hidden"
   },
 
   brand:{
     color: "white",
+
   },
 
 

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { formatDateTime } from '../utils/dateTime';
@@ -37,32 +37,38 @@ export default function ValueBar ({
 
 return(
     <View style={styles.container}>
-            <View style={styles.valueContainer}>
-                <Ionicons name="partly-sunny-outline" size={16} color="hsl(236,33%,60%)" />    
+            <View style={styles.dateContainer}>
+                <Ionicons name="partly-sunny-outline" size={16} color="hsl(236,33%,20%)" />    
                 <Text style={styles.time}>{formatDateTime(now)}</Text>
             </View>
-            <View style={styles.valueContainer}>
-                <View style={styles.valueBox}>
-                    <Ionicons name="thermometer-outline" size={16} color="hsl(0,0%,100%)" />
-                    <Text style={styles.value}> {temperature}</Text>
-                    <Text style={styles.unit}> °C</Text>
-                </View>
-                <View style={styles.valueBox}>
-                    <Ionicons name="water-outline" size={16} color="hsl(0,0%,100%)" />
-                    <Text style={styles.value}> {humidity}</Text>
-                    <Text style={styles.unit}> %</Text>
-                </View>
-                <View style={styles.valueBox}>
-                    <Ionicons name="flash-outline" size={16} color="hsl(0,0%,100%)" />
-                    <Text style={styles.value}> {powerConsumption}</Text>
-                    <Text style={styles.unit}> kWh</Text>
-                </View>
-                <View style={styles.valueBox}>
-                    <Ionicons name="water-outline" size={16} color="hsl(0,0%,100%)" />
-                    <Text style={styles.value}> {waterConsumption}</Text>
-                    <Text style={styles.unit}>liter</Text>
-                </View>
-            </View>
+            <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            style={styles.valueScroll}
+            contentContainerStyle={styles.valueRow}
+            >
+
+                    <View style={styles.valueBox}>
+                        <Ionicons name="thermometer-outline" size={16} color="hsl(236,33%,20%)" />
+                        <Text style={styles.value}> {temperature}</Text>
+                        <Text style={styles.unit}> °C</Text>
+                    </View>
+                    <View style={styles.valueBox}>
+                        <Ionicons name="water-outline" size={16} color="hsl(236,33%,20%)" />
+                        <Text style={styles.value}> {humidity}</Text>
+                        <Text style={styles.unit}> %</Text>
+                    </View>
+                    <View style={styles.valueBox}>
+                        <Ionicons name="flash-outline" size={16}color="hsl(236,33%,20%)" />
+                        <Text style={styles.value}> {powerConsumption}</Text>
+                        <Text style={styles.unit}> kWh</Text>
+                    </View>
+                    <View style={styles.valueBox}>
+                        <Ionicons name="water-outline" size={16} color="hsl(236,33%,20%)" />
+                        <Text style={styles.value}> {waterConsumption}</Text>
+                        <Text style={styles.unit}>liter</Text>
+                    </View>
+            </ScrollView>
 
 
     </View>
@@ -73,8 +79,7 @@ return(
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    justifyContent:"center",
-    backgroundColor: "hsl(0,0%,15%)",
+    backgroundColor: "hsl(236,33%,50%)",
     margin: 24,
     padding:24,
     borderRadius: 24,
@@ -88,31 +93,45 @@ const styles = StyleSheet.create({
     color: "white",
   },
 
-  valueContainer:{
-    flexDirection:"row",
-    gap:24,
+  dateContainer:{
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
   },
 
-  valueBox:{
-    padding:16,
+  valueScroll: {
+    flexGrow: 0,
+  },
+
+  valueRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 24,
+    paddingHorizontal: 8,
+  },
+
+  valueBox: {
+    padding: 16,
     borderRadius: 24,
     flexDirection: "row",
     alignItems: "center",
-    gap:8,
-    
+    gap: 8,
+    flexShrink: 0, 
   },
 
   time:{
-    color: "hsl(236,33%,60%)",
+    color: "hsl(236,33%,20%)",
   },
 
   value:{
     fontSize:32,
-    color: "hsl(236,33%,50%)",
+    color: "hsl(236,33%,20%)",
+    flexShrink: 0,
   },
 
   unit:{
-    color:"white",
+    color: "hsl(236,33%,20%)",
+    flexShrink: 0,
   },
 
 });
