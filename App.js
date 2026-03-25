@@ -1,14 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+
+import HomePlan from './assets/homePlan';
+import ZoomableSVG from './utils/ZoomableSVG';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <GestureHandlerRootView style={styles.container}>
+      <View style={styles.plan}> 
+        <ZoomableSVG>
+          <HomePlan />
+        </ZoomableSVG>
+      </View>
+    </GestureHandlerRootView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -16,5 +24,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#1b1b1bff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+
+  plan:{
+    width: "100%",
+    heigh: "100%",
+    padding: 32,
   },
 });
