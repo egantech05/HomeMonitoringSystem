@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import React, { useMemo, useState } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
@@ -43,6 +43,10 @@ export default function App() {
     <SafeAreaProvider>
       <SafeAreaView style={styles.safe} edges={['top', 'left', 'right', 'bottom']}>
         <GestureHandlerRootView style={styles.container}>
+            <StatusBar
+            backgroundColor="transparent"
+            translucent={true}
+          />
           <ValueBar
             temperature={display.temperature}
             humidity={display.humidity}
