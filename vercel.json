@@ -1,5 +1,9 @@
-"scripts": {
-    "start": "expo start",
-    "web": "expo start --web",
-    "build:web": "expo export -p web"
+{
+    "$schema": "https://openapi.vercel.sh/vercel.json",
+    "rewrites": [
+      {
+        "source": "/(.*)",
+        "destination": "/"
+      }
+    ]
   }
