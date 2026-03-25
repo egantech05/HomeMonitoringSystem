@@ -6,10 +6,10 @@ const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
 
 export default function ZomableSVG({
   children,
-  width = 340,
-  height = 240,
+  width = "100%",
+  height = "100%",
   minScale = 0.5,
-  maxScale = 4,
+  maxScale = 10,
   style,
 }) {
   const scale = useSharedValue(1);

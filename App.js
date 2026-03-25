@@ -28,7 +28,9 @@ const styles = StyleSheet.create({
 
   plan:{
     width: "100%",
-    heigh: "100%",
+    height: "100%",
     padding: 32,
+    borderWidth:2,
+    borderColor: "red",
   },
 });
