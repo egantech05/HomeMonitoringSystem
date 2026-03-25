@@ -63,12 +63,15 @@ return(
 
 const styles = StyleSheet.create({
   container: {
+    width: "100%",
+    maxWidth: 720,  
     alignItems: "center",
+    alignSelf: "center", 
     backgroundColor: "hsl(236,33%,50%)",
     margin: 24,
     padding:24,
     borderRadius: 24,
-    alignSelf: "stretch",
+
 
   },
 
@@ -84,6 +87,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-between",
+    gap: 16,
   },
 
   valueScroll: {
@@ -96,6 +100,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     paddingHorizontal: 8,
+    flexGrow: 1,
+    justifyContent: "center",
   },
 
   valueBox: {
@@ -103,6 +109,7 @@ const styles = StyleSheet.create({
     borderRadius: 24,
     flexDirection: "row",
     alignItems: "center",
+    
     gap: 8,
     flexShrink: 0, 
   },
