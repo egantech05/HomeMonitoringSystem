@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     margin: 24,
     padding:24,
     borderRadius: 24,
+    alignSelf: "stretch",
 
   },
 
@@ -86,14 +87,15 @@ const styles = StyleSheet.create({
   },
 
   valueScroll: {
+    width: "100%",
+    alignSelf: "stretch",
     flexGrow: 0,
   },
 
   valueRow: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 24,
-    paddingHorizontal: 24,
+    paddingHorizontal: 8,
   },
 
   valueBox: {
